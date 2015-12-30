@@ -1,0 +1,42 @@
+<div>
+  <style>
+    dl.step { }
+    dl.step dt { padding: 10px; }
+    dl.step dd { padding: 10px; }
+
+    @media (min-width: 768px) {
+      .dl-horizontal dt { white-space: normal; }
+    }
+
+    .bold { font-weight: bold; }
+  </style>
+
+  <h4><h3>{{recipe.name}} Recipe</h3></h4>
+
+  <dl ng-repeat="step in recipe.steps" class="dl-horizontal step" ng-class="{ 'bg-info': step.current }">
+    <dt>{{step.action}}</dt>
+    <dd>
+      <ul>
+        <li ng-repeat="ingredient in step.amounts">
+          <span 
+            ng-class="{ 'bold': parts.isNoun }"
+            ng-repeat="parts in ingredient.parts">
+            {{parts.word}}
+          </span>
+        </li>
+      </ul>
+      <i ng-if="recipe.list_current_step() == step.action" class="pull-right glyphicon glyphicon-hand-left"></i>
+    </dd>
+  </dl>
+
+  <div class="ui left aligned inverted segment">
+    <div class="ui big inverted relaxed divided list">
+      <div class="item" >
+        <div class="content">
+          <div class="header"></div>
+          
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

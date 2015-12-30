@@ -1,0 +1,9 @@
+<div>
+  <select ng-options="command as command.id for command in commands" ng-model="command"></select>
+  <button ng-click="execute(command.id)">make it so</button>
+
+  <button ng-click="listen()">
+    <span ng-if="isListening">Listening...</span>
+    <span ng-if="!isListening">Listen</span>
+  </button>
+</div>

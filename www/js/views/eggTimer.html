@@ -1,0 +1,5 @@
+<div>
+  <div ng-repeat="timer in timers">
+    <span ng-if="timer.minutes < 10">0</span>{{timer.minutes}}:<span ng-if="timer.seconds < 10">0</span>{{timer.seconds}}
+  </div>
+</div>
